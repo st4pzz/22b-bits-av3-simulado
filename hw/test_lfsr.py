@@ -24,5 +24,4 @@ def test_lfsr():
     rst = ResetSignal(0, active=1, isasync=True)
     dut = lfsr(bits, clk, rst)
     sim = Simulation(dut, [stimulus, clkgen])
-    traceSignals(dut)
     sim.run(200)

@@ -12,7 +12,7 @@ como usar o seu tempo.
 
 ## HW
 
-### Teoria
+### 1. Teoria
 
 |       | pts HW | pts SW |
 |-------|--------|--------|
@@ -24,25 +24,35 @@ Algo como:
 - O que é memória RAM e ROM
 - Como a nossa memória RAM foi construída
 
-### Linear-feedback shift register (LFSR)
+### 2. Linear-feedback shift register (LFSR)
 
 | Arquivo: `hw/lfsr.py` | pts HW | pts SW |
 |-----------------------|--------|--------|
-| pytest -k lfsr        | 5      |        |
-| Simulacão (papel)     | 5      |        |
+| (a) pytest -k lfsr        | 5      |        |
+| (b) Simulacão (papel)     | 5      |        |
 
 LFSR é um shift-register que o bit de entrada é uma função linear de sua saída, pode ser utilizado para gerar uma sequencia a pseudo randômica.
 
 ![](lfsr.png)
 
-#### Papel
+** Considere que o vetor de saída `bits` é composto por `[b5, b4, b3, b2, b1]`.**
 
-Simule o circuito por 6 clocks, e responda o que acontece com os bits[4:0].
+#### (a) Papel
 
-#### MyHDL
+Simule o circuito por 6 clocks, e responda o que acontece com os bits[5:].
 
-Implemente o módulo no arquivo `hw/lfsr.py`, utilize o flip flop tipo D `dff` já definido no arquivo. Considere que o vetor de saída `bits` é composto por `[b5, b4, b3, b2, b1]`.
+| clk counter | bits |
+|-------------|------|
+| 1           |      |
+| 2           |      |
+| 3           |      |
+| 4           |      |
+| 5           |      |
+| 6           |      |
 
+#### (b) MyHDL
+
+Implemente o módulo no arquivo `hw/lfsr.py`, utilize o flip flop tipo D `dff` já definido no arquivo.
 > tip: use ConcatSignal
 
 ``` python
@@ -50,13 +60,13 @@ Implemente o módulo no arquivo `hw/lfsr.py`, utilize o flip flop tipo D `dff` j
     bits = Signal(modbv(0))
 ```
 
-### Z01
+### 3. Z01
 
 |         | pts HW | pts SW |
 |---------|--------|--------|
-| (papel) | 10      | 5      |
+| (papel) | 10     | 5      |
 
-O que acontece com a cpu quando as intrucões a seguir são executadas?
+O que acontece com a cpu quando as intrucões a seguir são executadas? Explique e desenhe na CPU o fluxo de dados.
 
 - `leaw $5, %A`
 - `addr (%A), $-1, %D`
@@ -66,7 +76,7 @@ O que acontece com a cpu quando as intrucões a seguir são executadas?
 
 ## Nasm
 
-### 1. (10 SW) pseudo
+### 4. (10 SW) pseudo
 
 | Arquivo: `nasm/pseudo.nasm` | pts HW | pts SW |
 | --------------------------- | ------ | ------ |
@@ -82,7 +92,7 @@ Transcreva para assembly do Z01 o pseudo código a seguir:
 ;     RAM5[5] = RAM[5] - 1
 ```
 
-### 2. (10 SW / 10 HW) Senha
+### 5. (10 SW / 10 HW) Senha
 
 | Arquivo: `nasm/reta.nasm` | pts HW | pts SW |
 | ------------------------- | ------ | ------ |
@@ -98,7 +108,7 @@ A senha é definida pelo valor salvo em RAM[0] e o usuário insere uma senha pel
 - Em caso da senha estar correta: acender o LED[0]
 - Em caso da senha estar errada: acender os LED[2] e LED[1]
 
-### 3. (25 SW) AlTERando CaIxA dE CAraCteRes
+### 6. (25 SW) AlTERando CaIxA dE CAraCteRes
 
 | Arquivo: `nasm/uppsercase.nasm`   | pts HW | pts SW |
 | --------------------------------- | ------ | ------ |
