@@ -10,29 +10,3 @@
 ; Em caso da senha estar errada: acender todos os LEDs
 ; O sistema deve ficar em loop verificando se o usuário digitou a senha correta/ errada (configurou as chaves corretamente)
 
-loop:
-    leaw $21185, %A
-    movw (%A), %D
-    leaw $0, %A
-    subw %D, (%A), %D
-    leaw $certo, %A
-    je %D
-    nop
-
-errado:
-    leaw $6, %A
-    movw %A, %D
-    leaw $21184, %A
-    movw %D, (%A)
-    leaw $end, %A
-    jmp
-    nop
-
-certo:
-    leaw $21184, %A
-    movw $1, (%A)
-    leaw $end, %A
-    jmp
-    nop
-
-end:
