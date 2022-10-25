@@ -10,34 +10,59 @@ como usar o seu tempo.
 - **1h20 min**
 - **REALIZAR UM COMMIT (A CADA QUESTÃO) E DAR PUSH AO FINALIZAR**
 
-## Sequencial
-
+## HW
 
 ### Teoria
 
-Algo como as perguntas do estudo: 
+|       | pts HW | pts SW |
+|-------|--------|--------|
+| papel | 5      |        |
 
-- https://docs.google.com/forms/d/e/1FAIpQLSdGuoLR1Re3aok6I6adChgaDuMg0-dJaA7FF2gK5MLIGReg3g/viewform?usp=send_form
-
-### Misterioso 
-
-| Arquivo: `hw/misterioso.py` | pts HW | pts SW |
-|-----------------------------|--------|--------|
-| Não tem teste!              | 5      |        |
-
-Analise o circuito a seguir e responda no arquivo `hw/misterioso.py` qual o valor de q1 e q0 nos instantes (b), (c), (d), (e). Você deve responder no arquivo `py`, use como exemplo a resposta do instante (a), que já foi fornecido.
-
-![](sincrono.png)
+Algo como: 
+- - https://docs.google.com/forms/d/e/1FAIpQLSdGuoLR1Re3aok6I6adChgaDuMg0-dJaA7FF2gK5MLIGReg3g/viewform?usp=send_form
+- O que é registrador? 
+- O que é memória RAM e ROM
+- Como a nossa memória RAM foi construída
 
 ### Linear-feedback shift register (LFSR)
 
 | Arquivo: `hw/lfsr.py` | pts HW | pts SW |
 |-----------------------|--------|--------|
-| pytest -k lfsr        | 10      |        |
+| pytest -k lfsr        | 5      |        |
+| Simulacão (papel)     | 5      |        |
 
-LFSR é um shift-register que o bit de entrada é uma função linear de sua saída, pode ser utilizado para gerar uma sequencia a pseudo randômica. Implemente o módulo detalhado a seguir no arquivo `hw/lfsr.py`, utilize o flip flop tipo D `dff` definido no arquivo.
+LFSR é um shift-register que o bit de entrada é uma função linear de sua saída, pode ser utilizado para gerar uma sequencia a pseudo randômica.
 
 ![](lfsr.png)
+
+#### Papel
+
+Simule o circuito por 6 clocks, e responda o que acontece com os bits[4:0].
+
+#### MyHDL
+
+Implemente o módulo no arquivo `hw/lfsr.py`, utilize o flip flop tipo D `dff` já definido no arquivo. Considere que o vetor de saída `bits` é composto por `[b5, b4, b3, b2, b1]`.
+
+> tip: use ConcatSignal
+
+``` python
+    # considere o sinal de saída bits como sendo do tipo
+    bits = Signal(modbv(0))
+```
+
+### Z01
+
+|         | pts HW | pts SW |
+|---------|--------|--------|
+| (papel) | 10      | 5      |
+
+O que acontece com a cpu quando as intrucões a seguir são executadas?
+
+- `leaw $5, %A`
+- `addr (%A), $-1, %D`
+- `jle`
+
+![](z01.png)
 
 ## Nasm
 
