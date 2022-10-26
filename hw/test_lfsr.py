@@ -7,16 +7,17 @@ tst = [1, 3, 7, 14, 28, 25, 18, 4, 8, 17, 2, 5, 10, 21, 11, 23, 15, 30, 29, 27, 
 
 def test_lfsr():
 
-    @always(delay(1))
+    @always(delay(5))
     def clkgen():
         clk.next = not clk
 
     @instance
     def stimulus():
+        yield delay(2)
 
         for d in tst:
-            yield clk.negedge
             assert bits == d
+            yield clk.negedge
 
 
     bits = Signal(modbv(0)[5:])
