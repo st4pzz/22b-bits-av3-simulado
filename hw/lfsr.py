@@ -17,8 +17,9 @@ def lfsr(bits, clk, rst):
 
     @always_comb
     def comb():
-        sxor.next = not (s5 ^ s3)
-        bits.next = ConcatSignal(s5, s4, s3, s2, s1)
+        sxor_aux = not (s5 ^ s3)
+        sxor.next = sxor_aux
+        bits.next = ConcatSignal(s4, s3, s2, s1, sxor_aux)
 
     return instances()
 
