@@ -10,6 +10,12 @@ como usar o seu tempo.
 - **1h20 min**
 - **REALIZAR UM COMMIT (A CADA QUESTÃO) E DAR PUSH AO FINALIZAR**
 
+### Conteúdo
+
+- Lógica sequencial (teoria e memória)
+- Z01 (arquitetura)
+- Assembly 
+
 ## HW
 
 ### 1. Teoria
