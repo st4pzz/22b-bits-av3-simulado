@@ -75,7 +75,7 @@ Implemente o módulo no arquivo `hw/lfsr.py`, utilize o flip flop tipo D `dff` j
 O que acontece com a cpu quando as intrucões a seguir são executadas? Explique e desenhe na CPU o fluxo de dados.
 
 - `leaw $5, %A`
-- `addr (%A), $-1, %D`
+- `addw (%A), $-1, %D`
 - `jle`
 
 ![](z01.png)
